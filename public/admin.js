@@ -50,7 +50,8 @@ function openModal(user) {
   $('password-note').textContent = user ? '(kosongkan jika tidak diubah)' : '';
   $('form-title').textContent = user ? `Edit ${labels[view]}` : `Tambah ${labels[view]}`;
   $('form-message').textContent = '';
-  $('#userModal').modal('show');
+  // `$` adalah helper getElementById di file ini; gunakan jQuery eksplisit untuk modal Bootstrap.
+  window.jQuery('#userModal').modal('show');
 }
 
 window.editUser = (button) => openModal({ id: button.dataset.id, name: decodeURIComponent(button.dataset.name), username: decodeURIComponent(button.dataset.username) });
@@ -86,7 +87,7 @@ $('user-form').addEventListener('submit', async (event) => {
   const body = { name: $('name').value, username: $('user-username').value, password: $('user-password').value, role: $('user-role').value };
   const { response, data } = await api(id ? `/api/admin/users/${id}` : '/api/admin/users', { method: id ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
   if (!response.ok) return $('form-message').textContent = data.message;
-  $('#userModal').modal('hide');
+  window.jQuery('#userModal').modal('hide');
   loadUsers();
 });
 $('logout').addEventListener('click', async (event) => { event.preventDefault(); await api('/api/auth/logout', { method: 'POST' }); location.href = '/login'; });
