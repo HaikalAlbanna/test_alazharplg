@@ -1,0 +1,5 @@
+// Helper request untuk dashboard Guru dan Siswa; sesi habis selalu kembali ke Login.
+async function api(url, options) { const response = await fetch(url, options); const data = await response.json().catch(() => ({})); if (response.status === 401) location.href = '/login'; return { response, data }; }
+// Memuat profil dan memastikan role pada URL cocok dengan role di token.
+(async () => { const { response, data } = await api('/api/auth/me'); if (!response.ok) return; const expected = location.pathname.startsWith('/guru') ? 'guru' : 'siswa'; if (data.user.role !== expected) return location.href = '/403'; document.title = `Dashboard ${data.user.role} | Portal Sekolah`; document.getElementById('title').textContent = `Dashboard ${data.user.role[0].toUpperCase() + data.user.role.slice(1)}`; for (const key of ['name','username','role']) document.getElementById(key).textContent = data.user[key]; })();
+document.getElementById('logout').addEventListener('click', async () => { await api('/api/auth/logout', { method: 'POST' }); location.href = '/login'; });

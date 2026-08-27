@@ -1,0 +1,40 @@
+{
+  "lastId": 5,
+  "users": [
+    {
+      "id": 1,
+      "name": "Administrator",
+      "username": "admin",
+      "password": "$2a$10$wUdVx1F77DFVYRpgbd2/E.7SkZWK9M6juXfevG1Uq5wmfoPUdXBVe",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Budi Santoso",
+      "username": "guru",
+      "password": "$2a$10$7fYs4Fn7bCbsqBoF.v.p6erfQdyKXRzEAiTruzHDaA3x5KC5lQGQW",
+      "role": "guru"
+    },
+    {
+      "id": 3,
+      "name": "Siti Aisyah",
+      "username": "siswa",
+      "password": "$2a$10$bdNPkCJQdlP298YGWDBnZ.OMr604wZRfa7z3jCtH6cvql1Rew3jem",
+      "role": "siswa"
+    },
+    {
+      "id": 4,
+      "name": "mamat",
+      "username": "mamat",
+      "password": "$2a$10$erPHMRFg5WwrE5C8y7R5Vuon1.7V4OY4z2/Yzmq6okl8q/zcn.Hja",
+      "role": "guru"
+    },
+    {
+      "id": 5,
+      "name": "luke",
+      "username": "luke",
+      "password": "$2a$10$Oz1VCTf9GpB4wL.CFG1xn.6/3xky66mu1S8eDDmXKpytnvWon3hnK",
+      "role": "siswa"
+    }
+  ]
+}
